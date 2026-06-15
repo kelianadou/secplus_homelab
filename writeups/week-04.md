@@ -35,3 +35,7 @@
   Cause probable : conflit de configuration ou règle mal formatée
   Action : à déboguer à la prochaine session avec logs détaillés
 - Note : le trafic intra-LAN entre VMs sur le même réseau VirtualBox ne passe pas forcément par l'interface pfSense — limitation architecturale à résoudre via configuration de monitoring dédié
+- 7 juin : Débogage approfondi Suricata
+  Cause racine identifiée : règles ET téléchargées (emerging.rules.tar.gz présent dans /usr/local/etc/suricata/) mais jamais extraites vers les dossiers des interfaces
+  Conséquence : service actif mais aucune règle chargée en mémoire → impossible de générer des alertes
+  Action prévue : forcer l'extraction manuelle des règles à la prochaine session
